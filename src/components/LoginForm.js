@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Card, CardSection, Input, Button } from './common';
 import { connect } from 'react-redux';
-import { emailChanged }from '../actions'
+import { Card, CardSection, Input, Button } from './common';
+import { emailChanged } from '../actions';
+
 class LoginForm extends Component {
 
   onEmailChange(text) {
@@ -33,7 +34,7 @@ class LoginForm extends Component {
           </Button>
         </CardSection>
       </Card>
-    )
+    );
   }
 }
 

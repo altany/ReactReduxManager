@@ -24,8 +24,8 @@ class App extends Component {
       <Provider store={createStore(reducers)}>
         <LoginForm />
       </Provider>
-    )
+    );
   }
-};
+}
 
 export default App;
