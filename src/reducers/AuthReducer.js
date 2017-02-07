@@ -5,8 +5,7 @@ const INITIAL_STATE = { email: '' }; // Ensure state is never undefined
 export default(state = INITIAL_STATE, action) => {
   switch (action.type) {
     case EMAIL_CHANGED:
-      console.log(EMAIL_CHANGED);
-      return state;
+      return { ...state, email: action.payload }; // Make NEW object from state,
     default:
       return state;
   }
