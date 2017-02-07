@@ -1,0 +1,3 @@
+# ReactReduxManager
+
+Work in progress...
