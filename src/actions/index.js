@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
@@ -37,7 +38,13 @@ export const loginUser = ({ email, password }) => {
 
 const authStatus = ({ dispatch, user, type, error }) => {
   const action = { type };
-  if (user) action.payload = user;
-  if (error) action.payload = error.message ? error.message : 'Authentication error';
-  dispatch(action);
+  if (user) {
+    action.payload = user;
+    dispatch(action);
+    Actions.employeeList();
+  }
+  if (error) {
+    action.payload = error.message ? error.message : 'Authentication error';
+    dispatch(action);
+  }
 };
