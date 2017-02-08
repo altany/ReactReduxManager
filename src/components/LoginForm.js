@@ -32,11 +32,7 @@ class LoginForm extends Component {
   }
   render() {
     return (
-      <Card>
-        <CardSection>
-          <Text style={{ fontSize: 20 }}>Login/Register</Text>
-        </CardSection>
-      
+      <Card>      
         <CardSection>
           <Input
             label='Email'
