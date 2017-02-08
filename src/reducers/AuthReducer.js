@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 }; // Ensure state is never undefined
 
 export default(state = INITIAL_STATE, action) => {
-  console.log(action);
   switch (action.type) {
     case EMAIL_CHANGED:
       return { ...state, email: action.payload }; // Make NEW object from state
@@ -20,7 +19,7 @@ export default(state = INITIAL_STATE, action) => {
       return { ...state, password: action.payload };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
-      return { ...state, user: action.payload };
+      return { ...state, user: action.payload, error: '' };
     case USER_FAIL:
       return { ...state, error: action.payload, password: '' };
     default:
