@@ -1,4 +1,8 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED } from '../actions/types';
+import {
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED,
+  LOGIN_USER_SUCCESS
+} from '../actions/types';
 
 const INITIAL_STATE = {
   email: '',
@@ -12,6 +16,8 @@ export default(state = INITIAL_STATE, action) => {
       return { ...state, email: action.payload }; // Make NEW object from state,
     case PASSWORD_CHANGED:
       return { ...state, password: action.payload }; // Make NEW object from state,
+    case LOGIN_USER_SUCCESS:
+      return { ...state, user: action.payload };
     default:
       return state;
   }
