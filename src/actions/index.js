@@ -2,9 +2,8 @@ import firebase from 'firebase';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
-  LOGIN_USER_SUCCESS,
-  REGISTER_USER_SUCCESS,
-  USER_FAIL
+  USER_AUTH_SUCCESS,
+  USER_AUTH_FAIL
 } from './types';
 
 export const emailChanged = (text) => {
@@ -24,12 +23,12 @@ export const passwordChanged = (text) => {
 export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(user => authStatus({ dispatch, user, type: LOGIN_USER_SUCCESS }))
+    .then(user => authStatus({ dispatch, user, type: USER_AUTH_SUCCESS }))
     .catch((err) => {
       console.log(err);
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(user => authStatus({ dispatch, user, type: REGISTER_USER_SUCCESS }))
-        .catch((error) => authStatus({ dispatch, type: USER_FAIL, error }));
+        .then(user => authStatus({ dispatch, user, type: USER_AUTH_SUCCESS }))
+        .catch((error) => authStatus({ dispatch, type: USER_AUTH_FAIL, error }));
     });
   };
 };
